@@ -1,6 +1,6 @@
-# scroll-paragraph.el
+# scroll-around.el
 
-Scroll the view by one paragraph while keeping the cursor at the same screen position.
+Scroll the view by paragraph or line while keeping the cursor at the same screen position.
 
 Unlike `forward-paragraph` and `backward-paragraph` which move the cursor, these commands move the view instead.
 
@@ -11,18 +11,16 @@ Unlike `forward-paragraph` and `backward-paragraph` which move the cursor, these
 Add to `~/.doom.d/packages.el`:
 
 ```elisp
-(package! scroll-paragraph
-  :recipe (:host github :repo "DamianB-BitFlipper/scroll-paragraph.el"))
+(package! scroll-around
+  :recipe (:host github :repo "DamianB-BitFlipper/scroll-around.el"))
 ```
 
 Add to `~/.doom.d/config.el`:
 
 ```elisp
-(use-package! scroll-paragraph
+(use-package! scroll-around
   :config
-  (map! :map 'override
-        :desc "Scroll forward paragraph" "C-S-<down>" #'scroll-forward-paragraph
-        :desc "Scroll backward paragraph" "C-S-<up>" #'scroll-backward-paragraph))
+  (scroll-around-mode 1))
 ```
 
 Then run `doom sync`.
@@ -32,33 +30,36 @@ Then run `doom sync`.
 Clone the repository:
 
 ```bash
-git clone https://github.com/DamianB-BitFlipper/scroll-paragraph.el ~/.emacs.d/lisp/scroll-paragraph.el
+git clone https://github.com/DamianB-BitFlipper/scroll-around.el ~/.emacs.d/lisp/scroll-around.el
 ```
 
 Add to your `init.el`:
 
 ```elisp
-(add-to-list 'load-path "~/.emacs.d/lisp/scroll-paragraph.el")
-(require 'scroll-paragraph)
-
-(global-set-key (kbd "C-S-<down>") #'scroll-forward-paragraph)
-(global-set-key (kbd "C-S-<up>") #'scroll-backward-paragraph)
+(add-to-list 'load-path "~/.emacs.d/lisp/scroll-around.el")
+(require 'scroll-around)
+(scroll-around-mode 1)
 ```
 
 ### use-package (with straight.el)
 
 ```elisp
-(use-package scroll-paragraph
-  :straight (:host github :repo "DamianB-BitFlipper/scroll-paragraph.el")
-  :bind
-  ("C-S-<down>" . scroll-forward-paragraph)
-  ("C-S-<up>" . scroll-backward-paragraph))
+(use-package scroll-around
+  :straight (:host github :repo "DamianB-BitFlipper/scroll-around.el")
+  :config
+  (scroll-around-mode 1))
 ```
 
 ## Usage
 
-- `C-S-<down>` (`scroll-forward-paragraph`): Scroll view forward by one paragraph
-- `C-S-<up>` (`scroll-backward-paragraph`): Scroll view backward by one paragraph
+Enable `scroll-around-mode` to activate the default keybindings:
+
+| Key | Command | Description |
+|-----|---------|-------------|
+| `C-S-<down>` | `scroll-forward-paragraph` | Scroll view forward by one paragraph |
+| `C-S-<up>` | `scroll-backward-paragraph` | Scroll view backward by one paragraph |
+| `S-<down>` | `scroll-forward-line` | Scroll view forward by one line |
+| `S-<up>` | `scroll-backward-line` | Scroll view backward by one line |
 
 ## License
 
