@@ -35,10 +35,10 @@
 ;;   (scroll-around-mode 1)
 ;;
 ;; This enables the following keybindings:
-;;   C-S-<down>  - scroll-forward-paragraph
-;;   C-S-<up>    - scroll-backward-paragraph
-;;   S-<down>    - scroll-forward-line
-;;   S-<up>      - scroll-backward-line
+;;   C-S-<down>  - scroll-around-forward-paragraph
+;;   C-S-<up>    - scroll-around-backward-paragraph
+;;   S-<down>    - scroll-around-forward-line
+;;   S-<up>      - scroll-around-backward-line
 
 ;;; Code:
 
@@ -47,7 +47,7 @@
   :group 'scrolling
   :prefix "scroll-around-")
 
-(defun scroll-forward-paragraph ()
+(defun scroll-around-forward-paragraph ()
   "Scroll view forward by one paragraph, keeping cursor at same screen position."
   (interactive)
   (let* ((screen-line (count-screen-lines (window-start) (point)))
@@ -59,7 +59,7 @@
     (goto-char (window-start))
     (vertical-motion screen-line)))
 
-(defun scroll-backward-paragraph ()
+(defun scroll-around-backward-paragraph ()
   "Scroll view backward by one paragraph, keeping cursor at same screen position."
   (interactive)
   (let* ((screen-line (count-screen-lines (window-start) (point)))
@@ -71,7 +71,7 @@
     (goto-char (window-start))
     (vertical-motion screen-line)))
 
-(defun scroll-forward-line ()
+(defun scroll-around-forward-line ()
   "Scroll view forward by one line, keeping cursor at same screen position."
   (interactive)
   (let ((screen-line (count-screen-lines (window-start) (point))))
@@ -79,7 +79,7 @@
     (goto-char (window-start))
     (vertical-motion screen-line)))
 
-(defun scroll-backward-line ()
+(defun scroll-around-backward-line ()
   "Scroll view backward by one line, keeping cursor at same screen position."
   (interactive)
   (let ((screen-line (count-screen-lines (window-start) (point))))
@@ -89,10 +89,10 @@
 
 (defvar scroll-around-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-S-<down>") #'scroll-forward-paragraph)
-    (define-key map (kbd "C-S-<up>") #'scroll-backward-paragraph)
-    (define-key map (kbd "S-<down>") #'scroll-forward-line)
-    (define-key map (kbd "S-<up>") #'scroll-backward-line)
+    (define-key map (kbd "C-S-<down>") #'scroll-around-forward-paragraph)
+    (define-key map (kbd "C-S-<up>") #'scroll-around-backward-paragraph)
+    (define-key map (kbd "S-<down>") #'scroll-around-forward-line)
+    (define-key map (kbd "S-<up>") #'scroll-around-backward-line)
     map)
   "Keymap for `scroll-around-mode'.")
 

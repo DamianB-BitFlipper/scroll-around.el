@@ -56,10 +56,10 @@ Enable `scroll-around-mode` to activate the default keybindings:
 
 | Key | Command | Description |
 |-----|---------|-------------|
-| `C-S-<down>` | `scroll-forward-paragraph` | Scroll view forward by one paragraph |
-| `C-S-<up>` | `scroll-backward-paragraph` | Scroll view backward by one paragraph |
-| `S-<down>` | `scroll-forward-line` | Scroll view forward by one line |
-| `S-<up>` | `scroll-backward-line` | Scroll view backward by one line |
+| `C-S-<down>` | `scroll-around-forward-paragraph` | Scroll view forward by one paragraph |
+| `C-S-<up>` | `scroll-around-backward-paragraph` | Scroll view backward by one paragraph |
+| `S-<down>` | `scroll-around-forward-line` | Scroll view forward by one line |
+| `S-<up>` | `scroll-around-backward-line` | Scroll view backward by one line |
 
 ## License
 
