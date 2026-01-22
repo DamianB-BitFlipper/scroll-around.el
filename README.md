@@ -4,6 +4,8 @@ Scroll the view by paragraph or line while keeping the cursor at the same screen
 
 Unlike `forward-paragraph` and `backward-paragraph` which move the cursor, these commands move the view instead.
 
+https://github.com/user-attachments/assets/600c340e-0894-4cc6-9d6e-f7aea793aa90
+
 ## Installation
 
 ### Doom Emacs
